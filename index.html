@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naina Bajaj | LinkedIn Growth Strategist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --ink: #1A1208;
+    --gold: #C8963E;
+    --gold-light: #E8B86D;
+    --warm-gray: #8A7F72;
+    --white: #FDFAF5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* NOISE TEXTURE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: linear-gradient(to bottom, var(--cream) 60%, transparent);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-cta {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 10px 24px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold);
+    transform: translateY(-1px);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(80px, 15vw, 200px);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(200, 150, 62, 0.12);
+    white-space: nowrap;
+    user-select: none;
+    z-index: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 900px; }
+
+  .hero-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--white);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s ease forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 88px);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 1.8vw, 1.25rem);
+    color: var(--warm-gray);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 16px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(200, 150, 62, 0.3);
+  }
+
+  .btn-secondary {
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+    padding: 16px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--cream);
+    transform: translateY(-2px);
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--ink);
+    padding: 48px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stats-bar::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(200,150,62,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .stat {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 900;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: rgba(245,240,232,0.55);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 100px 48px;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 48px;
+  }
+
+  /* WHAT I DO */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2px;
+    background: var(--ink);
+    border: 2px solid var(--ink);
+  }
+
+  .service-card {
+    background: var(--cream);
+    padding: 48px 36px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover { background: var(--white); }
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(200,150,62,0.2);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .service-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    color: var(--warm-gray);
+    line-height: 1.7;
+  }
+
+  /* PROCESS */
+  .process-section { background: var(--white); }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+
+  .process-step { text-align: center; }
+
+  .step-dot {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0 auto 24px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 0 8px var(--white), 0 0 0 9px rgba(200,150,62,0.2);
+  }
+
+  .process-step h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .process-step p {
+    font-size: 0.88rem;
+    color: var(--warm-gray);
+    line-height: 1.7;
+  }
+
+  /* PACKAGES */
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+  }
+
+  .package-card {
+    border: 1.5px solid rgba(26,18,8,0.12);
+    border-radius: 4px;
+    padding: 40px 32px;
+    transition: all 0.3s ease;
+    position: relative;
+    background: var(--white);
+  }
+
+  .package-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 48px rgba(200,150,62,0.12);
+  }
+
+  .package-card.recommended {
+    border-color: var(--gold);
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .recommended-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--white);
+    padding: 4px 16px;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .package-name {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .package-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .package-period {
+    font-size: 0.8rem;
+    color: var(--warm-gray);
+    margin-bottom: 28px;
+  }
+
+  .package-card.recommended .package-period { color: rgba(245,240,232,0.5); }
+
+  .package-features {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+
+  .package-features li {
+    font-size: 0.88rem;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(26,18,8,0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+
+  .package-card.recommended .package-features li {
+    border-bottom-color: rgba(245,240,232,0.08);
+  }
+
+  .package-features li::before {
+    content: '→';
+    color: var(--gold);
+    font-size: 0.8rem;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  .package-good-for {
+    font-size: 0.78rem;
+    color: var(--warm-gray);
+    font-style: italic;
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+
+  .package-card.recommended .package-good-for { color: rgba(245,240,232,0.5); }
+
+  .btn-package {
+    display: block;
+    text-align: center;
+    padding: 14px 24px;
+    border-radius: 100px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+  }
+
+  .btn-package:hover {
+    background: var(--ink);
+    color: var(--cream);
+  }
+
+  .package-card.recommended .btn-package {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--white);
+  }
+
+  .package-card.recommended .btn-package:hover {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+  }
+
+  /* CONTACT */
+  .contact-section {
+    background: var(--ink);
+    text-align: center;
+    padding: 120px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-section::before {
+    content: 'READY?';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(60px, 14vw, 180px);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(200,150,62,0.08);
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .contact-section .section-title {
+    color: var(--cream);
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-section p {
+    color: rgba(245,240,232,0.55);
+    font-size: 1rem;
+    max-width: 480px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-section .btn-primary {
+    background: var(--gold);
+    color: var(--white);
+    position: relative;
+    z-index: 1;
+    font-size: 1rem;
+    padding: 18px 48px;
+  }
+
+  .contact-section .btn-primary:hover {
+    background: var(--gold-light);
+    box-shadow: 0 16px 40px rgba(200,150,62,0.4);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(245,240,232,0.08);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(245,240,232,0.35);
+    font-size: 0.8rem;
+  }
+
+  footer a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: all 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESULTS SECTION */
+  .results-section { background: var(--white); }
+
+  .results-intro {
+    color: var(--warm-gray);
+    font-size: 1rem;
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 56px;
+  }
+
+  .charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .chart-card {
+    background: var(--cream);
+    border: 1.5px solid rgba(26,18,8,0.08);
+    border-radius: 4px;
+    padding: 32px;
+    transition: all 0.3s ease;
+  }
+
+  .chart-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 12px 32px rgba(200,150,62,0.1);
+    transform: translateY(-2px);
+  }
+
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+
+  .chart-metric {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .chart-label {
+    font-size: 0.78rem;
+    color: var(--warm-gray);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .chart-badge {
+    background: rgba(200,150,62,0.12);
+    color: var(--gold);
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .charts-grid { grid-template-columns: 1fr; }
+  }
+
+  /* RESULTS SECTION */
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .hero { padding: 100px 24px 60px; }
+    section { padding: 72px 24px; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); padding: 40px 24px; }
+    .process-steps { grid-template-columns: 1fr; gap: 32px; }
+    .process-steps::before { display: none; }
+    .packages-grid { grid-template-columns: 1fr; }
+    .contact-section { padding: 80px 24px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Naina Bajaj</div>
+  <a href="https://calendly.com/nainabajaj184" class="nav-cta">Let's Talk →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">LINKEDIN</div>
+  <div class="hero-content">
+    <span class="hero-tag">LinkedIn Growth Strategist</span>
+    <h1>I turn founder<br>profiles into<br><em>lead machines.</em></h1>
+    <p class="hero-sub">You're busy building. I handle your LinkedIn completely: content, engagement, lead generation. You focus on the product. I bring the audience.</p>
+    <div class="hero-actions">
+      <a href="https://calendly.com/nainabajaj184" class="btn-primary">Book a Free Call →</a>
+      <a href="#packages" class="btn-secondary">See Packages</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat">
+    <span class="stat-num">63.5K</span>
+    <span class="stat-label">Impressions in 90 days</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">+298%</span>
+    <span class="stat-label">Impression growth</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">6,980</span>
+    <span class="stat-label">Engagements (+532%)</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">5,117</span>
+    <span class="stat-label">Total followers (+59.6%)</span>
+  </div>
+</div>
+
+<!-- RESULTS / CHARTS -->
+<section class="results-section">
+  <span class="section-label reveal">Proof of Work</span>
+  <h2 class="section-title reveal">Real results.<br>One founder. 90 days.</h2>
+  <p class="results-intro reveal">These are actual LinkedIn analytics from a founder I managed. No estimates, no approximations.</p>
+
+  <div class="charts-grid">
+
+    <div class="chart-card reveal">
+      <div class="chart-header">
+        <div>
+          <div class="chart-metric">63,556</div>
+          <div class="chart-label">Impressions</div>
+        </div>
+        <div class="chart-badge">+298.2%</div>
+      </div>
+      <canvas id="impressionsChart"></canvas>
+    </div>
+
+    <div class="chart-card reveal">
+      <div class="chart-header">
+        <div>
+          <div class="chart-metric">6,980</div>
+          <div class="chart-label">Engagements</div>
+        </div>
+        <div class="chart-badge">+532.3%</div>
+      </div>
+      <canvas id="engagementsChart"></canvas>
+    </div>
+
+    <div class="chart-card reveal">
+      <div class="chart-header">
+        <div>
+          <div class="chart-metric">5,117</div>
+          <div class="chart-label">Total Followers</div>
+        </div>
+        <div class="chart-badge">+59.6%</div>
+      </div>
+      <canvas id="followersChart"></canvas>
+    </div>
+
+    <div class="chart-card reveal">
+      <div class="chart-header">
+        <div>
+          <div class="chart-metric">1,107</div>
+          <div class="chart-label">Profile Viewers</div>
+        </div>
+        <div class="chart-badge">+2% weekly</div>
+      </div>
+      <canvas id="viewersChart"></canvas>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT I DO -->
+<section>
+  <span class="section-label reveal">What I Do</span>
+  <h2 class="section-title reveal">Three things.<br>Done really well.</h2>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <h3>LinkedIn Profile Optimization</h3>
+      <p>Your profile is your first impression. I rewrite your headline, about section, and experience to attract the right people and make them want to reach out.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">02</div>
+      <h3>Content Strategy & Writing</h3>
+      <p>Consistent, on-brand posts that reflect your voice and your goals. I write, schedule, and track what's working. I adjust based on real data, not guesses.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-num">03</div>
+      <h3>Lead Generation</h3>
+      <p>Strategic outreach to your ideal clients. I identify, connect, and nurture. Your LinkedIn becomes a pipeline of warm, qualified leads every month.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <span class="section-label reveal">My Process</span>
+  <h2 class="section-title reveal">How it works</h2>
+  <div class="process-steps">
+    <div class="process-step reveal">
+      <div class="step-dot">1</div>
+      <h3>Week 1: Deep Dive</h3>
+      <p>I learn your brand, your audience, your goals across all your ventures. I build a content calendar that reflects all of it.</p>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-dot">2</div>
+      <h3>Ongoing: Full Execution</h3>
+      <p>I write, post, engage, and track. You focus on building. I handle LinkedIn completely. No briefing calls every week.</p>
+    </div>
+    <div class="process-step reveal">
+      <div class="step-dot">3</div>
+      <h3>Weekly: Real Numbers</h3>
+      <p>Every week I review what's working and what's not. We adjust based on data. You always know exactly what's happening.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <span class="section-label reveal">Pricing</span>
+  <h2 class="section-title reveal">Simple, transparent packages</h2>
+  <div class="packages-grid">
+
+    <div class="package-card reveal">
+      <div class="package-name">Starter</div>
+      <div class="package-price">₹12,000</div>
+      <div class="package-period">per month</div>
+      <ul class="package-features">
+        <li>3 posts per week (12/month)</li>
+        <li>Content writing & scheduling</li>
+        <li>Basic performance tracking</li>
+      </ul>
+      <p class="package-good-for">Good for: Testing the waters</p>
+      <a href="https://calendly.com/nainabajaj184" class="btn-package">Get Started</a>
+    </div>
+
+    <div class="package-card recommended reveal">
+      <div class="recommended-badge">Recommended</div>
+      <div class="package-name">Growth</div>
+      <div class="package-price">₹18,000</div>
+      <div class="package-period">per month</div>
+      <ul class="package-features">
+        <li>4 posts per week (16/month)</li>
+        <li>Content writing & scheduling</li>
+        <li>Engagement & community management</li>
+        <li>Weekly analytics report</li>
+      </ul>
+      <p class="package-good-for">Good for: Founders who want real traction</p>
+      <a href="https://calendly.com/nainabajaj184" class="btn-package">Get Started</a>
+    </div>
+
+    <div class="package-card reveal">
+      <div class="package-name">Full Management</div>
+      <div class="package-price">₹25,000</div>
+      <div class="package-period">per month</div>
+      <ul class="package-features">
+        <li>5 posts per week (20/month)</li>
+        <li>Everything in Growth</li>
+        <li>Lead generation outreach</li>
+        <li>Monthly strategy calls</li>
+      </ul>
+      <p class="package-good-for">Good for: Founders ready to go all in</p>
+      <a href="https://calendly.com/nainabajaj184" class="btn-package">Get Started</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section">
+  <h2 class="section-title">Ready to grow<br><em style="color:var(--gold-light)">your LinkedIn?</em></h2>
+  <p>Let's have a quick call and figure out if we're a good fit. No pressure, no pitch. Just a real conversation about your goals.</p>
+  <a href="https://mail.google.com/mail/?view=cm&to=Nainabajaj1806@gmail.com" target="_blank" class="btn-primary">Email Me →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Naina Bajaj</span>
+  <a href="https://mail.google.com/mail/?view=cm&to=Nainabajaj1806@gmail.com" target="_blank">Nainabajaj1806@gmail.com</a>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Chart defaults
+  Chart.defaults.font.family = "'DM Sans', sans-serif";
+  Chart.defaults.color = '#8A7F72';
+
+  const labels = ['Nov 29','Dec 6','Dec 13','Dec 20','Dec 27','Jan 3','Jan 10','Jan 17','Jan 24','Jan 31','Feb 7','Feb 14','Feb 21','Feb 28'];
+  const goldColor = '#C8963E';
+
+  function makeChart(id, data, fill) {
+    const ctx = document.getElementById(id).getContext('2d');
+    const gradient = ctx.createLinearGradient(0, 0, 0, 180);
+    gradient.addColorStop(0, 'rgba(200,150,62,0.18)');
+    gradient.addColorStop(1, 'rgba(200,150,62,0)');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          data,
+          borderColor: goldColor,
+          borderWidth: 2.5,
+          backgroundColor: fill ? gradient : 'transparent',
+          fill: fill,
+          tension: 0.4,
+          pointRadius: 0,
+          pointHoverRadius: 5,
+          pointHoverBackgroundColor: goldColor,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false }, tooltip: {
+          backgroundColor: '#1A1208',
+          titleColor: '#E8B86D',
+          bodyColor: '#F5F0E8',
+          padding: 10,
+          cornerRadius: 4,
+        }},
+        scales: {
+          x: { grid: { display: false }, ticks: { maxTicksLimit: 5, font: { size: 11 } } },
+          y: { grid: { color: 'rgba(26,18,8,0.06)' }, ticks: { font: { size: 11 }, callback: v => v >= 1000 ? (v/1000).toFixed(0)+'k' : v } }
+        }
+      }
+    });
+  }
+
+  makeChart('impressionsChart', [200, 900, 2800, 5000, 7500, 12000, 18000, 25000, 33000, 42000, 50000, 55000, 60000, 63556], true);
+  makeChart('engagementsChart', [20, 80, 250, 500, 750, 1200, 1800, 2600, 3600, 4600, 5200, 5800, 6400, 6980], true);
+  makeChart('followersChart', [0, 30, 80, 180, 280, 500, 1000, 1200, 1400, 1600, 1750, 1850, 1950, 2050], true);
+  makeChart('viewersChart', [60, 100, 120, 130, 40, 90, 240, 130, 120, 120, 155, 120, 110, 110], false);
+</script>
+</body>
+</html>
