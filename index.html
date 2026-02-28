@@ -925,4 +925,15 @@
         scales: {
           x: { grid: { display: false }, ticks: { maxTicksLimit: 5, font: { size: 11 } } },
           y: { grid: { color: 'rgba(26,18,8,0.06)' }, ticks: { font: { size: 11 }, callback: v => v >= 1000 ? (v/1000).toFixed(0)+'k' : v } }
-  
+        }
+      }
+    });
+  }
+
+  makeChart('impressionsChart', [200, 900, 2800, 5000, 7500, 12000, 18000, 25000, 33000, 42000, 50000, 55000, 60000, 63556], true);
+  makeChart('engagementsChart', [20, 80, 250, 500, 750, 1200, 1800, 2600, 3600, 4600, 5200, 5800, 6400, 6980], true);
+  makeChart('followersChart', [0, 30, 80, 180, 280, 500, 1000, 1200, 1400, 1600, 1750, 1850, 1950, 2050], true);
+  makeChart('viewersChart', [60, 100, 120, 130, 40, 90, 240, 130, 120, 120, 155, 120, 110, 110], false);
+</script>
+</body>
+</html>
